@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Janken</title>
+</head>
+
+<body>
+
+  <form action="/janken1" method="post">
+    <input type="name" name="任意の名前" />
+    <input type="submit" value="入室">
+    <a href="/janken1/name"></a> = [[${username}]]
+  </form>
+  <div th:if="${username}"> 
+    名前:[[${username}]]
+  </div>
+
+</body>
+
+</html>
