@@ -17,11 +17,6 @@ public class JankenController {
   }
 
 
-  @GetMapping("/janken1")
-  public String janken2() {
-    return "janken.html";
-  }
-
   @GetMapping("/jankengcp/{param1}")
   public String jankengcp(@PathVariable String param1, ModelMap model) {
     int fist = Integer.parseInt(param1);// param1が文字列なので，parseIntでint型の数値に変換する
@@ -39,3 +34,5 @@ public class JankenController {
 
   }
 }
+
+
