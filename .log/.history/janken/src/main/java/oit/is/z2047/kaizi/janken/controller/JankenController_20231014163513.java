@@ -17,22 +17,8 @@ public class JankenController {
   }
 
 
-  @GetMapping("/jankengcp/{param1}")
-  public String jankengcp(@PathVariable String param1, ModelMap model) {
-    int fist = Integer.parseInt(param1);// param1が文字列なので，parseIntでint型の数値に変換する
-    
-    // ModelMap型変数のmodelにtasuResult1という名前の変数で，tasuResultの値を登録する．
-    // ここで値を登録するとthymeleafが受け取り，htmlで処理することができるようになる
-    if (fist == 1) {
-      return "jankengu.html";
-    } else if(fist == 2) {
-      return "jankencho.html";
-    } else if(fist == 3) {
-      return "jankenpa.html";
-    }
-    return "jankengu.html";
-
+  @GetMapping("/janken1")
+  public String janken2() {
+    return "janken.html";
   }
 }
-
-
