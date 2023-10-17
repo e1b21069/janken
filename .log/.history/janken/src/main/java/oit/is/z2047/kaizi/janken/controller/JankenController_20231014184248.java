@@ -2,7 +2,6 @@ package oit.is.z2047.kaizi.janken.controller;
 
 import java.security.Principal;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,15 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-import oit.is.z2047.kaizi.janken.model.Entry;
-
+@Autowired
+private Room room;
 @Controller
 public class JankenController {
-
-  @Autowired
-  private Entry room;
-
   @PostMapping("/janken")
   public String janken(@RequestParam("username") String name, Principal prin, ModelMap model) {
     String loginUser = prin.getName();
@@ -28,8 +22,7 @@ public class JankenController {
     model.addAttribute("username", name);
     return "janken.html";
   }
-
-
+  
   @GetMapping("/janken")
   public String janken2(Principal prin, ModelMap model) {
     String loginUser = prin.getName();
@@ -46,9 +39,9 @@ public class JankenController {
     // ここで値を登録するとthymeleafが受け取り，htmlで処理することができるようになる
     if (fist == 1) {
       return "jankengu.html";
-    } else if (fist == 2) {
+    } else if(fist == 2) {
       return "jankencho.html";
-    } else if (fist == 3) {
+    } else if(fist == 3) {
       return "jankenpa.html";
     }
     return "jankengu.html";
